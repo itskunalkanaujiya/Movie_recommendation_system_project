@@ -3,8 +3,17 @@ import pickle
 import pandas as pd
 
 
-movies_dict=pickle.load(open("movies_dict",'rb'))
-similarity=pickle.load(open('similarity.pkl','rb'))
+import os
+
+# Get the folder where app.py is located
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Load files using absolute path
+with open(os.path.join(BASE_DIR, "similarity.pkl"), "rb") as f:
+    similarity = pickle.load(f)
+
+with open(os.path.join(BASE_DIR, "movies_dict.pkl"), "rb") as f:
+    movies_dict = pickle.load(f)
 movies=pd.DataFrame(movies_dict)
 st.title("Movie Recommendation System")
 
