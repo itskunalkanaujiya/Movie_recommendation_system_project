@@ -2,15 +2,6 @@ import streamlit as st
 import pickle
 import pandas as pd
 
-import gdown
-import os
-
-# Check if file already exists
-if not os.path.exists("similarity.pkl"):
-    url = "https://drive.google.com/uc?id=10fy_GDXohKsBK5lvnHrFktWf3CixsR4G"
-    gdown.download(url, "similarity.pkl", quiet=False)
-
-
 
 movies_dict=pickle.load(open("movies_dict",'rb'))
 similarity=pickle.load(open('similarity.pkl','rb'))
